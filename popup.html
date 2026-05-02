@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peekaboo</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" fill="#ff0000"/>
+          <polygon points="10,8 17,12 10,16" fill="white"/>
+          <rect x="4" y="18.5" width="16" height="2" rx="1" fill="white" opacity="0.6"/>
+          <rect x="4" y="18.5" width="9" height="2" rx="1" fill="white"/>
+        </svg>
+        <span class="logo-text">Peekaboo</span>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="openOptions" title="Settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-value" id="totalVideos">0</span>
+        <span class="stat-label">videos</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value" id="totalTime">0h</span>
+        <span class="stat-label">watch time</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value" id="totalBookmarks">0</span>
+        <span class="stat-label">bookmarks</span>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="videos">Videos</button>
+      <button class="tab" data-tab="bookmarks">Bookmarks</button>
+    </div>
+
+    <div class="search-row" id="searchRow">
+      <div class="search-wrap">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search videos…" autocomplete="off">
+      </div>
+      <select id="sortSelect">
+        <option value="recent">Recent</option>
+        <option value="percent">Progress</option>
+        <option value="duration">Length</option>
+      </select>
+    </div>
+
+    <div class="tab-content active" id="tab-videos">
+      <div id="videoList" class="video-list"></div>
+      <div id="emptyVideos" class="empty-state hidden">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+          <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+        </svg>
+        <p>No videos saved yet</p>
+        <span>Start watching YouTube and your progress will appear here.</span>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-bookmarks">
+      <div id="bookmarkList" class="bookmark-list"></div>
+      <div id="emptyBookmarks" class="empty-state hidden">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+        <p>No bookmarks yet</p>
+        <span>While watching a video, use the bookmark button to save a moment.</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
